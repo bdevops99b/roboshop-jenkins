@@ -1,5 +1,6 @@
 - name: Create Jenkins Jobs
-  hosts: all
+  hosts: localhost
+  connection: local
   tasks:
     - name: Create jenkins jobs
       community.general.jenkins_job:
