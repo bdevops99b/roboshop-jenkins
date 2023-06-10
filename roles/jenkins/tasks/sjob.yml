@@ -1,3 +1,15 @@
+- name: Check if the jenkins job exists or not
+  community.general.jenkins_job_info:
+    name: "{{item.job_name}}"
+    user: admin
+    password: admin
+    url: http://172.31.82.55:8080
+  register: jenkins_job_status
+
+- name: Debug
+  debug:
+    msg: "{{jenkins_job_status}}"
+
 - name: Copy xml file
   ansible.builtin.template:
     src: sjob.xml
