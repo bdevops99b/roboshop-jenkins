@@ -10,5 +10,6 @@ mjobs:
   - { git_repo_url: https://github.com/bdevops99b/shipping.git, job_name: shipping }
   - { git_repo_url: https://github.com/bdevops99b/payment.git, job_name: payment }
   - { git_repo_url: https://github.com/bdevops99b/dispatch.git, job_name: dispatch }
+  - { git_repo_url: https://github.com/bdevops99b/frontend.git, job_name: frontend}
 
 
