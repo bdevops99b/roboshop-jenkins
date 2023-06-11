@@ -23,6 +23,7 @@ def call() {
             stage('Unit test cases') {
                 steps {
                     sh 'echo Unit test'
+                    sh 'python3.6 -m unittest '
                 }
 
             }

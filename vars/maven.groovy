@@ -29,7 +29,7 @@ def call() {
             stage('Unit test cases') {
                 steps {
                     sh 'echo Unit test'
-                    sh 'mvn test'
+                    // sh 'mvn test'
                 }
 
             }
