@@ -39,6 +39,13 @@ def call() {
                 }
 
             }
+            stage('Release application') {
+                steps {
+                    sh 'env'
+                    sh 'Release application'
+                }
+
+            }
 
         }
         post {
