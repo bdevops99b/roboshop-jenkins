@@ -42,7 +42,7 @@ def call() {
             stage('Release application') {
                 steps {
                     sh 'env'
-                    sh 'Release application'
+                    sh 'echo Release application'
                 }
 
             }
