@@ -49,7 +49,7 @@ def call() {
                     }
                 }
                 steps {
-                    sh 'npm install'
+                    // 'npm install'
                     sh 'echo $TAG_NAME >VERSION'
                     sh 'zip -r ${component}-${TAG_NAME}.zip *'
                     //deleting the file as it is not needed
