@@ -12,6 +12,7 @@ def call() {
        }
         parameters {
             choice(name: 'env', choices: ['dev', 'prod'], description: 'Pick environment')
+            choice(name: 'action', choices: ['dev', 'prod'], description: 'Pick environment')
         }
         stages {
             stage('Terraform INIT') {
