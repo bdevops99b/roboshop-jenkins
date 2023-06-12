@@ -10,7 +10,9 @@ def call() {
         options {
            ansiColor('xterm')
        }
-
+        environment {
+            NEXUS = credentials('NEXUS')
+        }
         stages {
 
             stage('Code Quality') {
@@ -50,8 +52,8 @@ def call() {
             }
             steps {
                 sh 'echo $TAG_NAME >VERSION'
-                sh 'zip -r ${component}-${TAG_NAME}.zip *.ini *.txt *.py VERSION'
-                sh 'curl -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.90.94:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+                sh 'zip -r ${component}-${TAG_NAME}.zip *.ini *.py *.txt  VERSION'
+                sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.90.94:8081/repository/${component}/${component}-${TAG_NAME}.zip'
             }
 
         }
