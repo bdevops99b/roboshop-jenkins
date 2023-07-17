@@ -59,12 +59,11 @@ def call() {
 //                    sh 'docker push 193400300103.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
 //                }
 
+
                 steps {
-                    // sh 'npm install'
+                    sh 'npm install'
                     sh 'echo $TAG_NAME >VERSION'
-                    sh 'zip -r ${component}-${TAG_NAME}.zip *'
-                    // Deleting this file as it is not needed.
-                    sh 'zip -d ${component}-${TAG_NAME}.zip Jenkinsfile'
+                    sh 'zip -r ${component}-${TAG_NAME}.zip node_modules server.js VERSION ${schema_dir}'
                     sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://34.227.105.159:8081/repository/${component}/${component}-${TAG_NAME}.zip'
 
                     sh 'echo Release Application'
