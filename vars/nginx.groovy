@@ -48,27 +48,18 @@ def call() {
                         env.TAG_NAME ==~ ".*"
                     }
                 }
-//                steps {
-//                    // 'npm install'
-//                    sh 'echo $TAG_NAME >VERSION'
-//                    sh 'zip -r ${component}-${TAG_NAME}.zip *'
-//                    //deleting the file as it is not needed
-//                   // sh 'zip -d ${component}-${TAG_NAME}.zip Jenkinsfile'
-//                   // sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.92.175:8081/repository/${component}/${component}-${TAG_NAME}.zip'
-//                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 193400300103.dkr.ecr.us-east-1.amazonaws.com'
-//                    sh 'docker build -t 193400300103.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME} .'
-//                    sh 'docker push 193400300103.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
-//                }
                 steps {
-                    // sh 'npm install'
+                    // 'npm install'
                     sh 'echo $TAG_NAME >VERSION'
                     sh 'zip -r ${component}-${TAG_NAME}.zip *'
-                    // Deleting this file as it is not needed.
-                    sh 'zip -d ${component}-${TAG_NAME}.zip Jenkinsfile'
-                    sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://34.227.105.159:8081/repository/${component}/${component}-${TAG_NAME}.zip'
-
-                    sh 'echo Release Application'
+                    //deleting the file as it is not needed
+                   // sh 'zip -d ${component}-${TAG_NAME}.zip Jenkinsfile'
+                   // sh 'curl -f -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${component}-${TAG_NAME}.zip http://172.31.92.175:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 193400300103.dkr.ecr.us-east-1.amazonaws.com'
+                    sh 'docker build -t 193400300103.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME} .'
+                    sh 'docker push 193400300103.dkr.ecr.us-east-1.amazonaws.com/${component}:${TAG_NAME}'
                 }
+
 
             }
 
