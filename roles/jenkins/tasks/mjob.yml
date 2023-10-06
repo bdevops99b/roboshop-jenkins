@@ -1,8 +1,8 @@
 - name: Check if the jenkins job exists or not
   community.general.jenkins_job_info:
     name: "{{item.job_name}}"
-    user: admin
-    password: admin
+    user: admin123
+    password: admin123
     url: http://172.31.17.109:8080
   register: jenkins_job_status
   ignore_errors: true
@@ -18,7 +18,7 @@
   community.general.jenkins_job:
     config: "{{ lookup('file', 'test.xml') }}"
     name: "{{item.job_name}}"
-    password: admin
+    password: admin123
     url: http://172.31.17.109:8080
-    user: admin
+    user: admin123
   when: jenkins_job_status.failed or override
