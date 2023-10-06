@@ -22,4 +22,3 @@
     url: http://172.31.17.109:8080
     user: admin123
   when: jenkins_job_status.failed or override
-
